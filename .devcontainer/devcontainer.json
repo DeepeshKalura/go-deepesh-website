@@ -1,0 +1,57 @@
+{
+	"name": "Deepesh Personal Website",
+	"image": "mcr.microsoft.com/devcontainers/go:1-1.23-bookworm",
+	"forwardPorts": [8080],
+	"postCreateCommand": "go install golang.org/x/tools/gopls@latest && go install github.com/go-delve/delve/cmd/dlv@latest && go install golang.org/x/tools/cmd/goimports@latest && go install golang.org/x/lint/golint@latest",
+	"customizations": {
+	  "vscode": {
+		"extensions": [
+		  "golang.Go",
+		  "usernamehw.errorlens",
+		  "bradlc.vscode-tailwindcss",
+		  "yzhang.markdown-all-in-one",
+		  "ms-azuretools.vscode-docker",
+		  "christian-kohler.path-intellisense",
+		  "esbenp.prettier-vscode",
+		  "pkief.material-icon-theme",
+		  "github.github-vscode-theme",
+		  "ritwickdey.liveserver",
+		  "naumovs.color-highlight",
+		  "vscode-icons-team.vscode-icons",
+		  "formulahendry.auto-rename-tag"
+		],
+		"settings": {
+		  "go.toolsManagement.autoUpdate": true,
+		  "go.useLanguageServer": true,
+		  "go.lintTool": "golint",
+		  "go.lintFlags": ["--fast"],
+		  "go.formatTool": "goimports",
+		  "go.testOnSave": true,
+		  "editor.formatOnSave": true,
+		  "editor.codeActionsOnSave": {
+			"source.organizeImports": "always"
+		  },
+		  "errorLens.enabledDiagnosticLevels": [
+			"error",
+			"warning",
+			"info"
+		  ],
+		  "errorLens.fontStyleItalic": true,
+		  "workbench.colorTheme": "GitHub Dark",
+		  "workbench.iconTheme": "material-icon-theme",
+		  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+		  "editor.fontLigatures": true,
+		  "tailwindCSS.includeLanguages": {
+			"plaintext": "html",
+			"go-template": "html",
+			"go": "html"
+		  },
+		  "tailwindCSS.emmetCompletions": true,
+		  "emmet.includeLanguages": {
+			"go-template": "html"
+		  }
+		}
+	  }
+	},
+	"remoteUser": "root"
+  }
