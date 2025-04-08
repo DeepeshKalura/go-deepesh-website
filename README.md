@@ -24,3 +24,10 @@ A personal website built with Go, HTMX, and Tailwind CSS.
 - Go for backend
 - HTMX for interactive UI without JavaScript
 - Tailwind CSS for styling
+
+
+for the deployment
+
+```bash
+go build -tags netgo -ldflags '-s -w' -o app ./cmd/server/
+```
