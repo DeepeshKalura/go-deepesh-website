@@ -48,6 +48,54 @@ func main() {
 		tmpl.ExecuteTemplate(w, "faq.html", data)
 	})
 
+	// Service
+	http.HandleFunc("/project", func(w http.ResponseWriter, r *http.Request) {
+		data := TemplateData{
+			Title:  "Projects Deepesh has communicated so far",
+			Active: "Projects",
+			Data:   map[string]string{"message": ""},
+		}
+
+		tmpl.ExecuteTemplate(w, "projects.html", data)
+	})
+
+	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		http.ServeFile(w, r, "static/img/favicon.ico")
+	})
+
+	http.HandleFunc("/food", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			return
+		}
+
+		data := TemplateData{
+			Title:  "Cooking With Kalura Deepesh",
+			Active: "Food",
+			Data:   map[string]string{"message": ""},
+		}
+
+		tmpl.ExecuteTemplate(w, "food.html", data)
+
+	})
+
+	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
+
+		if r.Method != http.MethodGet {
+			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		data := TemplateData{
+			Title:  "Experience - Deepesh Kalura",
+			Active: "Experience",
+			Data:   map[string]string{"message": ""},
+		}
+		tmpl.ExecuteTemplate(w, "experience.html", data)
+	})
 	// Start server
 	port := "8080"
 	fmt.Printf("Server running at http://localhost:%s\n", port)
