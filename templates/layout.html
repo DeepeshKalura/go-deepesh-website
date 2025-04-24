@@ -1,0 +1,101 @@
+<!-- templates/layout.html -->
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}}</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              DEFAULT: '#121212',
+              lighter: '#1e1e1e',
+              card: 'rgba(40, 40, 40, 0.8)',
+              accent: '#6366f1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom glass effect - more subtle */
+    .glass {
+      background: rgba(30, 30, 30, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .ribbon {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ribbon-corner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+    }
+    
+    .ribbon-corner span {
+      position: absolute;
+      top: 25px;
+      right: -25px;
+      display: block;
+      width: 150px;
+      padding: 5px 0;
+      text-align: center;
+      transform: rotate(45deg);
+      font-weight: bold;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-dark text-gray-200 min-h-screen flex flex-col">
+  <!-- Navigation Component -->
+  {{template "navigation" .}}
+
+  <!-- Content Area -->
+  <div id="content-area">
+    {{template "content" .}}
+  </div>
+  
+  <!-- Footer Component -->
+  {{template "footer" .}}
+
+  <script>
+    // HTMX boost for all internal links
+    document.addEventListener('DOMContentLoaded', function() {
+      htmx.on("htmx:afterOnLoad", function(evt) {
+        // Update page title after HTMX loads
+        const titleTag = evt.detail.xhr.getAllResponseHeaders().split('\r\n')
+          .find(header => header.startsWith('X-Title:'));
+        if (titleTag) {
+          document.title = titleTag.split('X-Title:')[1].trim();
+        }
+        
+        // Update the URL if needed
+        const path = evt.detail.pathInfo.requestPath;
+        if (path && window.location.pathname !== path) {
+          window.history.pushState({}, '', path);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+{{end}}

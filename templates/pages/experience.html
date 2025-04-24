@@ -1,0 +1,112 @@
+{{define "content"}}
+<main class="flex-grow pt-24 pb-8 px-4">
+  <div class="container mx-auto max-w-4xl">
+    <!-- Ribbon banner -->
+    <div class="mb-2">
+      <div class="bg-green-600 text-yellow-100 py-1 px-3 rounded-t-lg text-sm inline-block shadow-md font-medium">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+          </svg>
+          PROFESSIONAL EXPERIENCE
+          <div class="mx-4 flex space-x-2">
+            <span class="inline-block w-3 h-3 rounded-full bg-green-500 ring-2 ring-yellow-200" title="Software Development"></span>
+            <span class="inline-block w-3 h-3 rounded-full bg-yellow-400" title="Engineering"></span>
+            <span class="inline-block w-3 h-3 rounded-full bg-red-500" title="Leadership"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="glass rounded-xl p-8 mb-8 shadow-xl border border-gray-700">
+      <h2 class="text-3xl font-bold text-indigo-300 mb-8">Professional Experience</h2>
+
+      <p class="text-gray-400 mb-6">Last Updated: April 23, 2025</p>
+      
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg mb-8">
+        <p class="text-gray-300 mb-4">
+          What is experience? This is such a deep question that i will have to create a new section just to convey this message but I believe experience is a conscious event undertaken to acquire knowledge, particularly regarding its content.
+        </p>
+        <p class="text-gray-300 mb-4"> 
+          Projects, working within a company, and helping others with their communication contribute to one's overall experience. Freelancing, internships, and even developing personal projects are also valuable aspects of my experience, especially in relation to working with companies.
+        </p>
+        <p class="text-gray-300 mb-4">
+          I have invested effort in both the projects I have failed and those I have succeeded in. Some of these projects required extensive research rather than coding, and even my unsuccessful research papers are part of my journey toward understanding the subject.
+        </p>
+        <p class="text-gray-300 mb-4"> 
+          Aren't all these endeavours conscious events aimed at acquiring knowledge? Therefore, I see all these experiences as stepping stones toward better communication with computers.
+        </p>
+        <p class="text-gray-300">
+          However, I still choose to showcase only the companies I have worked for. As a result, my six years of experience feel like they've reset to zero because I am still a college student.
+        </p>
+      </div>
+
+      <h3 class="text-2xl font-bold text-white mb-6">Company Experience</h3>
+      
+      <div class="space-y-8">
+        <!-- IME Experience -->
+        <div class="relative">
+          <!-- Ribbon corner with "Current" label -->
+          <div class="absolute top-0 right-0">
+            <div class="bg-green-600 text-white text-xs font-semibold px-3 py-1 shadow-lg">
+              Current
+            </div>
+          </div>
+          
+          <!-- Job card content -->
+          <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">Software Engineer at IME</h3>
+            <p class="text-gray-400 mb-4">March 5, 2025 - Present</p>
+            
+            <div class="bg-gray-900 rounded-lg p-5 mb-6">
+              <p class="text-gray-200">
+                Currently working as a Software Engineer at IME, contributing to various projects and enhancing my technical skills in a professional environment.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">Software Development</span>
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">Engineering</span>
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">Full-time</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mentra Experience -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">Software Engineer Intern at Mentra</h3>
+            <p class="text-gray-400 mb-4">June 2024 - September 2024 · 4 months | Dubai, United Arab Emirates · Remote</p>
+            
+            <div class="bg-gray-900 rounded-lg p-5 mb-6">
+              <p class="text-gray-200 mb-4">
+                During my three-month internship, I was responsible for managing the mobile application and the backend, which is written in PHP Laravel. While I have a year of self-taught backend development experience, I faced the challenge of creating a backend from Laravel without prior professional experience.
+              </p>
+              <p class="text-gray-200 mb-4">
+                Throughout this time, I learned a new language, built various functionalities, and solved bugs on the go. Here is a list of my work:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-gray-200">
+                <li>Managed the display of local time for users, as our backend stored data in the Africa time zone, but users needed to see it in their local time (e.g., Indian IST).</li>
+                <li>Created an admin system to grant subscription access to users.</li>
+                <li>Handled the migration of data and the restructuring of therapy session purchase records in the existing database, as well as created payment functionality with Stripe.</li>
+                <li>Improved the webRTC functionality.</li>
+              </ul>
+              <p class="text-gray-200 mt-4">
+                These were the areas in which I worked, and I solved numerous bugs during this internship.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">PHP Laravel</span>
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">Mobile Development</span>
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">WebRTC</span>
+              <span class="bg-indigo-900 bg-opacity-30 text-indigo-300 px-3 py-1 rounded-full text-sm">Internship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+{{end}}

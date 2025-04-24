@@ -1,0 +1,85 @@
+{{define "content"}}
+  <main class="flex-grow pt-24 pb-8 px-4">
+    <div class="container mx-auto max-w-4xl">
+
+      <div class="mb-2">
+        <div class="bg-red-600 text-red-100 py-1 px-3 rounded-t-lg text-sm inline-block shadow-md font-medium">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+            </svg>
+            FOR DEVELOPERS
+            <div class="mx-4 flex space-x-2">
+              <span class="inline-block w-3 h-3 rounded-full bg-green-500" title="General Public"></span>
+              <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 " title="Startups/Domain Experts"></span>
+              <span class="inline-block w-3 h-3 rounded-full bg-red-500 ring-2 ring-red-200" title="Software Developers"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FAQ Content -->
+      <section class="glass rounded-xl p-8 mb-8 shadow-xl border border-gray-700">
+        <h2 class="text-3xl font-bold text-indigo-300 mb-8">Frequently Asked Questions</h2>
+        
+        <div class="space-y-8">
+          <!-- FAQ Item 1 - Updated dark theme explanation -->
+          <div>
+            <h3 class="text-xl font-semibold text-white mb-3">Why do you only use a dark theme?</h3>
+            <div class="bg-indigo-900 bg-opacity-20 rounded-lg p-5">
+              <p class="mb-3">
+                I'm a developer, and the dark theme just works better for me. It reduces eye strain during long coding sessions, and I find it more comfortable to work with.
+              </p>
+              <p>
+                I chose purple for good contrast, nothing more and nothing less. Light themes just don't feel as good when I'm spending hours in front of a screen. It's a practical choice, not a philosophical one.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+
+        <!-- FAQ Item 2 - Domain choice -->
+<div class="mt-8">
+  <h3 class="text-xl font-semibold text-white mb-3">Why did you choose the .xyz domain?</h3>
+  <div class="bg-indigo-900 bg-opacity-20 rounded-lg p-5">
+    <p class="mb-3">
+      I chose the .xyz domain because I won it at the North Hack Star hackathon. It was part of the prize package, so I decided to use it for my personal site.
+    </p>
+    <p>
+      If I hadn't won it or had to choose a different domain, I would have gone with either .dev or .in as my go-to options. The .xyz isn't too costly to maintain now that I'm paying for it, and it has a nice tech-oriented feel to it.
+    </p>
+  </div>
+</div>
+
+
+<!-- FAQ Item 3 - Colored indicators -->
+<div class="mt-8">
+  <h3 class="text-xl font-semibold text-white mb-3">What do the colored dots above each section mean?</h3>
+  <div class="bg-indigo-900 bg-opacity-20 rounded-lg p-5">
+    <p class="mb-3">
+      The colored indicators are my creative way to quickly show which audience a particular section is meant for:
+    </p>
+    <ul class="space-y-2 ml-4">
+      <li class="flex items-center">
+        <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+        <span>Green represents content for the general public - no technical knowledge required</span>
+      </li>
+      <li class="flex items-center">
+        <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2"></span>
+        <span>Yellow indicates content for startups, marking domain knowledge - some domain knowledge required</span>
+      </li>
+      <li class="flex items-center">
+        <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>
+        <span>Red highlights content specifically for software developers - technical content ahead</span>
+      </li>
+    </ul>
+    <p class="mt-3">
+      I created this system to help visitors quickly identify which content is most relevant to them, making information easier to navigate.
+    </p>
+  </div>
+</div>
+      </section>
+{{end}}
+
+    
