@@ -88,7 +88,7 @@ func main() {
 	})
 
 	// Projects page
-	http.HandleFunc("/project", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
 		data := TemplateData{
 			Title:       "Projects Deepesh has communicated so far",
 			Active:      "projects",
