@@ -1,0 +1,83 @@
+<!-- templates/pages/projects.html -->
+{{define "content"}}
+<main class="flex-grow container mx-auto p-4 md:p-8 pt-24">
+    <!-- Page Header -->
+   <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-white">My Work &amp; Creations</h1>
+        <p class="text-gray-400 mt-2">A collection of projects I've built and experiments I've run.</p>
+    </div>
+    <!-- Projects List -->
+    <div class="max-w-4xl mx-auto space-y-8">
+        
+        <!-- Project Item: Orca -->
+        <article class="glass rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:border-indigo-600 border border-transparent">
+            <div class="p-6">
+                <!-- Layer 1: Title and Status -->
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-2xl font-bold text-white">Project Orca</h3>
+                    <span class="bg-red-900 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
+                        Fail
+                    </span>
+                </div>
+
+                <!-- Layer 2: Explanation -->
+                <p class="text-gray-300 mb-6">
+                    An experimental bot designed to execute high-risk, high-reward trades in the cryptocurrency market. The goal was to explore automated trading strategies, but it ultimately proved unsustainable without significant capital due to taxes and market volatility.
+                </p>
+
+                <!-- Layer 3: Metadata (Tags & Action) -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-4 sm:mb-0">
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Azure</span>
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Terraform</span>
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Nextjs</span>
+                    </div>
+
+                    <!-- Action Button -->
+                    <a href="/project/ProjectOrca" 
+                       class="inline-block text-center bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 hover:bg-indigo-500"
+                       hx-get="/project/ProjectOrca"
+                       hx-target="#content-area"
+                       hx-push-url="true">
+                       Read Case Study
+                    </a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Example of a "Pass" Project (add more like this) -->
+        <!-- 
+        <article class="glass rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:border-green-600 border border-transparent">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-2xl font-bold text-white">Example Successful Project</h3>
+                    <span class="bg-green-900 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">
+                        Pass
+                    </span>
+                </div>
+                <p class="text-gray-300 mb-6">
+                    This project achieved its primary goals, was delivered to the client successfully, and is currently in production.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex flex-wrap gap-2 mb-4 sm:mb-0">
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Next.js</span>
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Vercel</span>
+                        <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                    </div>
+                    <a href="/project/AnotherProject" 
+                       class="inline-block text-center bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 hover:bg-indigo-500"
+                       hx-get="/project/AnotherProject"
+                       hx-target="#content-area"
+                       hx-push-url="true">
+                       Read Case Study
+                    </a>
+                </div>
+            </div>
+        </article>
+        -->
+
+    </div>
+</main>
+{{end}}

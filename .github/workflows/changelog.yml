@@ -1,0 +1,30 @@
+name: Generate Changelog
+
+on:
+  push:
+    branches:
+      - main # This runs only when you push to the main branch
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # We need to fetch all history and tags
+          fetch-depth: 0
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # This creates a file named CHANGELOG.md
+          output-file: "CHANGELOG.md"
+
+      - name: Commit updated CHANGELOG.md
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: Update CHANGELOG.md"
+          file_pattern: CHANGELOG.md

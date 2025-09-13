@@ -1,0 +1,14 @@
+{{define "content"}}
+<main class="flex-grow container mx-auto p-4 md:p-8">
+    <div class="glass rounded-xl shadow-lg overflow-hidden p-8 max-w-4xl mx-auto">
+        <!-- 
+            The 'prose' classes from Tailwind CSS automatically style raw HTML 
+            (like the one we generate from Markdown) to look beautiful.
+        -->
+        <div class="prose prose-invert lg:prose-xl max-w-none prose-h1:text-indigo-300 prose-a:text-indigo-400">
+            <!-- The parsed Markdown content will be injected here by the Go handler -->
+            {{.Data}}
+        </div>
+    </div>
+</main>
+{{end}}

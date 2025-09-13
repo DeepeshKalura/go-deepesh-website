@@ -1,0 +1,16 @@
+<!-- templates/components/project_nav.html -->
+{{define "project_navigation"}}
+<nav class="sticky top-0 z-50 py-4">
+  <div class="container mx-auto px-4">
+      <div class="glass rounded-full max-w-md mx-auto px-6 py-2 shadow-xl border border-gray-800 flex items-center justify-between">
+        <a href="/projects" class="text-gray-300 hover:text-indigo-300 transition-colors text-sm" hx-get="/projects" hx-target="#content-area" hx-push-url="true">
+          &larr; All Projects
+        </a>
+        <span class="text-sm font-semibold text-white">Project Case Study</span>
+        <a href="/" class="text-gray-300 hover:text-indigo-300 transition-colors text-sm" hx-get="/" hx-target="#content-area" hx-push-url="true">
+          Main Site &rarr;
+        </a>
+      </div>
+  </div>
+</nav>
+{{end}}

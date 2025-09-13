@@ -4,8 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"text/template"
+
+	"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown/parser"
 )
 
 type TemplateData struct {
@@ -25,11 +29,11 @@ var funcMap = template.FuncMap{
 	},
 }
 
-func renderTemplate(w http.ResponseWriter, templateName string, data TemplateData) {
+func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data TemplateData) {
 	// Create template with functions
 	tmpl := template.New("").Funcs(funcMap)
 
-	// Parse all template files
+	// Parse all template files (this part is the same)
 	templateFiles := []string{
 		filepath.Join("templates", "layout.html"),
 		filepath.Join("templates", "components", "nav.html"),
@@ -43,11 +47,14 @@ func renderTemplate(w http.ResponseWriter, templateName string, data TemplateDat
 		return
 	}
 
-	// Set custom header for title
 	w.Header().Set("X-Title", data.Title)
 
-	// Execute the template
-	err = parsedTemplate.ExecuteTemplate(w, "layout", data)
+	if r.Header.Get("HX-Request") == "true" {
+		err = parsedTemplate.ExecuteTemplate(w, "content", data)
+	} else {
+		err = parsedTemplate.ExecuteTemplate(w, "layout", data)
+	}
+
 	if err != nil {
 		http.Error(w, "Error executing template: "+err.Error(), http.StatusInternalServerError)
 	}
@@ -57,6 +64,9 @@ func main() {
 	// Serve static files
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// registering handler
+	registerProjectHandlers()
 
 	// Home page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -72,7 +82,7 @@ func main() {
 			Data:        map[string]string{"message": "Welcome to my website!"},
 		}
 
-		renderTemplate(w, "index", data)
+		renderTemplate(w, r, "index", data)
 	})
 
 	// FAQ page
@@ -84,19 +94,7 @@ func main() {
 			Data:        map[string]string{"message": "Frequently Asked Questions"},
 		}
 
-		renderTemplate(w, "faq", data)
-	})
-
-	// Projects page
-	http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
-		data := TemplateData{
-			Title:       "Projects Deepesh has communicated so far",
-			Active:      "projects",
-			CurrentPath: "/projects",
-			Data:        map[string]string{"message": ""},
-		}
-
-		renderTemplate(w, "projects", data)
+		renderTemplate(w, r, "faq", data)
 	})
 
 	// Favicon
@@ -123,7 +121,7 @@ func main() {
 			Data:        map[string]string{"message": ""},
 		}
 
-		renderTemplate(w, "food", data)
+		renderTemplate(w, r, "food", data)
 	})
 
 	// Experience page
@@ -140,7 +138,44 @@ func main() {
 			Data:        map[string]string{"message": ""},
 		}
 
-		renderTemplate(w, "experience", data)
+		renderTemplate(w, r, "experience", data)
+	})
+
+	http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
+		data := TemplateData{
+			Title:       "Projects - Deepesh Kalura",
+			Active:      "projects", // This is logical, even if not in the main nav
+			CurrentPath: "/projects",
+			Data:        map[string]string{"message": ""},
+		}
+
+		renderTemplate(w, r, "projects", data)
+	})
+
+	http.HandleFunc("/changelog", func(w http.ResponseWriter, r *http.Request) {
+		// Read the markdown file from disk
+		md, err := os.ReadFile("CHANGELOG.md")
+		if err != nil {
+			http.Error(w, "Could not read changelog file", http.StatusInternalServerError)
+			return
+		}
+
+		// Configure the markdown parser
+		extensions := parser.CommonExtensions | parser.AutoHeadingIDs
+		p := parser.NewWithExtensions(extensions)
+
+		// Convert the markdown content to HTML
+		html := markdown.ToHTML(md, p, nil)
+
+		data := TemplateData{
+			Title:       "Changelog - Deepesh Kalura",
+			Active:      "changelog",
+			CurrentPath: "/changelog",
+			// IMPORTANT: Wrap the HTML in template.HTML to prevent it from being escaped
+			Data: template.HTMLEscaper(html),
+		}
+
+		renderTemplate(w, r, "changelog", data)
 	})
 
 	// Start server

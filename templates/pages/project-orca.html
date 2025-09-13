@@ -1,0 +1,82 @@
+<!-- templates/pages/project-orca.html -->
+{{define "content"}}
+<main class="flex-grow container mx-auto p-4 md:p-8">
+    <div class="glass rounded-xl shadow-lg overflow-hidden p-8 max-w-4xl mx-auto">
+
+        <div class="mb-8">
+            <a href="/projects"
+               class="text-indigo-400 hover:text-indigo-300 transition-colors duration-300"
+               hx-get="/projects"
+               hx-target="#content-area"
+               hx-push-url="true">
+               &larr; Back to All Projects
+            </a>
+        </div>
+        
+
+        <!-- Project Title -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Project Orca</h1>
+            <p class="text-indigo-400 font-semibold">Rule the Crypto Ocean with Orca Bot</p>
+            <a href="https://orcabot.dev/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                orcabot.dev
+            </a>
+        </div>
+
+        <!-- Section: What is Project Orca? -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">What is Project Orca?</h2>
+            <p class="text-gray-300 leading-relaxed">
+                Project Orca is one of the crazy ideas where I wanted to create a bot that can generate high risk and high rewards of money in the crypto market.
+            </p>
+        </div>
+
+        <!-- Section: Inspiration -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">What is the inspiration?</h2>
+            <p class="text-gray-300 leading-relaxed">
+                The inspiration for OrcaBot comes from a conversation with my sister. She wanted to invest some of her leisure money into cryptocurrency to aim for very high rewards, even if she got losses in her investment. So the high-rewards and high-risk idea is only for people like her, where she does not care about her investment in the hope of a really great return of money.
+            </p>
+        </div>
+
+        <!-- Section: Journey -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">Journey of the project</h2>
+            <p class="text-gray-300 leading-relaxed mb-3">
+                I first participated in a hackathon with this idea, and we failed quite badly! This raises an interesting question: Does attending a hackathon benefit a project in any way? The short answer is no, not at all.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-3">
+                After that experience, I paused my project for a long time. When I finally continued working on it using Azure, I ran my first forward test after about ten days. Unfortunately, I encountered a bug that prompted me to upgrade to a <code class="bg-dark-lighter px-2 py-1 rounded text-sm">Standard_B2s</code> virtual machine for my project. Once I deployed it, my bot made its first successful trade, but I ended up with a loss. I realised that trading requires a significant amount of capital to begin with, since a 30% win rate goes to taxes. This made me estimate that my project timeline is likely to stretch to three years.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+                So, I’m building this project for the public, and I expect it to take three years with a continuous investment of money. I have been updating my code, but I continue to incur losses. After taking a two-month break to focus on cryptocurrency gathering, I managed to earn $440 in USDT.
+            </p>
+        </div>
+
+        <!-- Section: What's next? -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">What's next for this project?</h2>
+            <p class="text-gray-300 leading-relaxed">
+                If a project comes from a genuine problem, it never dies; rather, its solution changes its form. Similarly, for the next project, I found a method called copy trading, which helps me find the way I wanted to make my trades and make my expectations very clear. If future Deepesh ever wanted to revive this project, he knows who he wants to target.
+            </p>
+        </div>
+
+        <!-- Section: What I learned -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">What I learned from this project</h2>
+            <p class="text-gray-300 leading-relaxed">
+                I am a stupid man!! I am thinking I am a logical person, but no. But rather, I understand that I'm a shortsighted person. On behaviour points, I think I have to protect myself from committing to a project. While developing, I learnt the importance of human resources, being able to use Terraform (IaaS), and looking for so much information which is not my cup of tea.
+            </p>
+        </div>
+
+        <!-- Section: Accomplishments -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-100 border-b-2 border-dark-accent pb-2 mb-4">Accomplishments that I'm proud of</h2>
+            <p class="text-gray-300 leading-relaxed">
+                Even after one year, I have been stuck and continuously making Microsoft rich. I delivered to my sister a method that she had asked me for long ago.
+            </p>
+        </div>
+
+    </div>
+</main>
+{{end}}
