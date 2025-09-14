@@ -65,4 +65,13 @@ func registerProjectHandlers() {
 		renderProjectTemplate(w, r, "project-orca-news", data)
 
 	})
+
+	http.HandleFunc("/project/dipishakalura", func(w http.ResponseWriter, r *http.Request) {
+		data := TemplateData{
+			Title:       "Winvote - Deepesh Kalura",
+			CurrentPath: "/project/dipishakalura",
+			Data:        nil,
+		}
+		renderProjectTemplate(w, r, "project-dipishakalura", data)
+	})
 }
